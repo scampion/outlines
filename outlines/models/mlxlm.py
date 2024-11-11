@@ -167,11 +167,6 @@ class MLXLM:
             prob = softmax_logits[0, token]
             return token, prob
 
-        kv_heads = (
-            [self.model.args.num_key_value_heads] * len(self.model.layers)
-            if isinstance(self.model.args.num_key_value_heads, int)
-            else self.model.args.num_key_value_heads
-        )
         cache = mlx_lm.models.cache.make_prompt_cache(self.model)
 
 
